@@ -12,6 +12,16 @@ router.get('/email/:account', (req, res, next) => {
   });
 });
 
+
+router.get('/', (req, res, next) => {
+  cloudScraper.get('/', (error) => {
+    if (error) {
+      next(error);
+    }
+    res.json('ready!!!');
+  });
+});
+
 router.get('/password/:hash', (req, res, next) => {
   cloudScraper.get(`https://api.pwnedpasswords.com/range/${req.params.hash}`, (error, response, body) => {
     if (error) {
