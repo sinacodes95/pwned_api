@@ -20,6 +20,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({err: err.message});
 });
 
-app.listen(4300, () => {
+app.listen(process.env.PORT || 4300, () => {
   console.log('Project set up');
 });
